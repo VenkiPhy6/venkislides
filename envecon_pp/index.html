@@ -17,30 +17,48 @@
       <div class="slides">
   
 
-    <section><h2 id="does-the-guy-with-the-glasses-matter-here">Does the guy with the glasses matter here?</h2>
-<p><img src="./assets/manager_win.png" alt=""></p>
+    <section><h2 id="potential-conservation-gains-from-improved-protected-area-management-in-the-brazilian-amazon">Potential conservation gains from improved protected area management in the Brazilian Amazon</h2>
+<p>Thales A.P. West, Jill L. Caviglia-Harris, Flora S.R.V. Martins, Daniel E. Silva, Jan Börner</p>
+<p>March 20, 2024</p>
+<p><em>For</em> PPPE 6367: Environmental Economics</p>
 </section><section>
-<h2 id="big-question">Big Question:</h2>
-<p>How much does management matter for Protected Area (PA) instruments to be impactful?</p>
+
+
+<span class='fragment ' ><h3 id="how-much-is-the-jurgen-effect-in-liverpools-victory">How much is the &ldquo;Jurgen effect&rdquo; in Liverpool&rsquo;s victory?</h3>
+</span>
+
+
+
+
+
+<aside class="notes"><p>And if you forget Jurgen, you can ask in general, how much does the management quality of a soccer team moderate that team&rsquo;s ability to secure a victory in the champions league?
+And if you forget about soccer entirely, you can ask  -</p>
+</aside>
+<img class="r-frame" src="./assets/manager_win.png" width="5090">
 </section><section>
 
 
 <section data-shortcode-section>
-<h2 id="1-hypothesis">1. Hypothesis</h2>
+<h2 id="big-question">Big Question:</h2>
+<p>How much does management matter for Protected Area (PA) instruments to be impactful?</p>
+</section><section>
+<h2 id="but-wait">But wait&hellip;</h2>
+<p>Can PA instruments reduce deforestation in the first place?!</p>
+<p><span class='fragment ' >Yes, indeed!</span></p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="hypothesis">Hypothesis</h2>
 <ul>
-<li><em>Construct</em>: Better management of PA policy instruments creates more conservation gains.</li>
+<li><em>Construct</em>: Better management of PA instruments creates more conservation gains.</li>
 <li><em>Operationalization</em>: Creating a Management Plan(MP) for a PA instrument in Brazil reduces Deforestation (D) better than not creating one.</li>
 </ul>
-<p>In summary, hypothesis is:</p>
-<div class="mermaid">
-graph LR
-    PA --> MP
-    MP --> D
-    PA --> D
-</div>
+<p><span class='fragment ' >Here, variation in compliance of Brazilian authorities means some instruments are treated with a MP but some are not!</span></p>
 </section><section>
-<h2 id="1-hypothesis-1">1. Hypothesis</h2>
-<h3 id="construct-validity-yes">Construct validity? Yes</h3>
+<h3 id="construct-validity">Construct validity?</h3>
 <table>
 <thead>
 <tr>
@@ -62,26 +80,203 @@ graph LR
 </tr>
 </tbody>
 </table>
+<p><span class='fragment ' >Yes</span></p>
+
+</section>
+</section><section>
+<h4 id="the-rest-of-this-presentation">The rest of this presentation</h4>
+<img class="r-frame" src=./assets/evr.jpg width="370">
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="sampling-issues">Sampling Issues</h2>
+<h3 id="expected-population">Expected population</h3>
+<table>
+<thead>
+<tr>
+<th>$i = \text{PA instrument}$</th>
+<th>$t$</th>
+<th>$T_{it} = \text{Plan}$</th>
+<th>$D^0_{it}$</th>
+<th>$D^1_{it}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Given $T_{it}$ is as-if random and stationary time series,
+$$ D_{it} = \alpha + \tau T_{it} + \epsilon_{it} $$</p>
+</section><section>
+<h3 id="reality-of-the-sample">Reality of the sample</h3>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr1.jpg" width="570">
+</section><section>
+<h3 id="reality-of-the-sample-with-timings">Reality of the sample with timings</h3>
+<img class="r-frame" src=./assets/sample_timings.png width="415">
+
+</section>
+</section><section>
+<h2 id="identification-strategy">Identification strategy</h2>
+<h3 id="expectation-conditional-ignorability">Expectation: Conditional ignorability</h3>
+<p>$${\{ D^0_{it}, D^1_{it} \} \perp T_{it}} \,\,|\,\, X_{it} = x_{it}$$</p>
+<p>Does their methodological reality meet this expectation?</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="methodologies">Methodologies</h2>
+<h3 id="two-separate-methods">Two separate methods</h3>
+<ol>
+<li>Matching</li>
+<li>Synthetic Control</li>
+</ol>
+</section><section>
+<h3 id="matching">Matching</h3>
+<h4 id="expectations-to-satisfy-conditional-ignorability">Expectations to satisfy conditional ignorability</h4>
+<ol>
+<li>Match on as many relevant covariates as possible</li>
+<li>Good post-treatment balance from the match without dropping too many treated units</li>
+<li>Specific flavor of the matching exercise carried out is robust to changes in hyperparameters:
+<ul>
+<li>Number of pre-treatment periods matched</li>
+<li>Matching size</li>
+<li>Distance metrics</li>
+</ul>
+</li>
+</ol>
+</section><section>
+<h3 id="matching-1">Matching</h3>
+<h4 id="reality-of-the-matching-exercise">Reality of the matching exercise</h4>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr3_lrg.jpg" width="650">
+</section><section>
+<h3 id="two-separate-methods-1">Two separate methods</h3>
+<ol>
+<li>Matching ✅</li>
+<li>Synthetic Control</li>
+</ol>
+</section><section>
+<h3 id="synthetic-control">Synthetic Control</h3>
+<p>$$D_{it} = \alpha_i + \xi_t + \tau_{it}T_{it} + \mathbf{X_{it}}\beta + \mathbf{\lambda_i}f_t + \epsilon_{it}$$</p>
+<h4 id="expectations-to-satisfy-conditional-ignorability-1">Expectations to satisfy conditional ignorability</h4>
+<ol>
+<li>Have pre-treatment trends match up exactly
+<ul>
+<li><em>Convex Hull assumption</em>: Treated unit shouldn&rsquo;t be far better/worse than the control units.</li>
+</ul>
+</li>
+<li>Interpretable weights between 0 and 1 for both covaraites and units</li>
+</ol>
+</section><section>
+<h3 id="synthetic-control-1">Synthetic Control</h3>
+<h4 id="reality-of-the-synth-exercise">Reality of the Synth exercise</h4>
+<p>We will see balance when we see results. But for the Convex Hull part&hellip;</p>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr2.jpg" width="570">
+</section><section>
+<h3 id="two-separate-methods-2">Two separate methods</h3>
+<ol>
+<li>Matching ✅</li>
+<li>Synthetic Control ✅</li>
+</ol>
+<p>✅: Expectations of conditional ignorability are plausibly met by the methods here.</p>
+</section><section>
+<h3 id="note-on-estimand">Note on estimand</h3>
+<p>$$\text{ATT} \equiv E[\tau_{it}|T_{it} = 1] = E[D^1_{it} - D^0_{it} | T_{it} = 1]$$</p>
 
 </section>
 </section><section>
 
 
 <section data-shortcode-section>
-<h2 id="2-sample-vs-population">2. Sample vs Population</h2>
-<h3 id="the-sample">The sample</h3>
-<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr1.jpg" width="570">
+<h2 id="results">Results</h2>
+<h3 id="matching">Matching</h3>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr4_lrg.jpg" width="530">
 </section><section>
-<h2 id="2-sample-vs-population-1">2. Sample vs Population</h2>
-<h3 id="the-population">The population</h3>
-<div class="mermaid">
-graph LR
-    PA --> MP
-    MP --> D
-    PA --> D
-</div>
+<h2 id="results-1">Results</h2>
+<h3 id="synth">Synth</h3>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr5_lrg.jpg" width="660">
+</section><section>
+<h2 id="results-2">Results</h2>
+<h3 id="reckoning-the-standard-errors">Reckoning the Standard Errors</h3>
+<p>Is bootstrapping the right way to go for SE in a matching exercise?</p>
+<ol>
+<li>Abadie, A., &amp; Imbens, G. W. (2008). On the failure of the bootstrap for matching estimators. <em>Econometrica, 76</em>(6), 1537-1557.
+<ul>
+<li>Says no!</li>
+</ul>
+</li>
+</ol>
+</section><section>
+<p>Is bootstrapping the right way to go for SE in a matching exercise?</p>
+<ol start="2">
+<li>Otsu, T., &amp; Rai, Y. (2017). Bootstrap inference of matching estimators for average treatment effects. <em>Journal of the American Statistical Association, 112</em>(520), 1720-1732.
+<ul>
+<li>Fixes the problem posed in 1</li>
+</ul>
+</li>
+<li>Imai, K., Kim, I. S., &amp; Wang, E. H. (2023). Matching methods for causal inference with time‐series cross‐sectional data. <em>American Journal of Political Science, 67</em>(3), 587-605.
+<ul>
+<li>This is the method used by authors</li>
+</ul>
+</li>
+</ol>
+</section><section>
+<h2 id="results-3">Results</h2>
+<h3 id="reckoning-the-standard-errors-when-there-is-population-data">Reckoning the Standard Errors when there is population data</h3>
+<p>I mentioned earlier that they have population data. I wonder if could they have relied on that and found a way out here&hellip;</p>
+<p>Abadie, A., Athey, S., Imbens, G. W., &amp; Wooldridge, J. M. (2020). Sampling‐based versus design‐based uncertainty in regression analysis. <em>Econometrica, 88</em>(1), 265-296.</p>
 
 </section>
+</section><section>
+<h2 id="conclusion">Conclusion</h2>
+<p>Approval of a management plan leads to a reduction of 0.57–1.26 km${^2}$ year$^{−1}$ (or 0.02%–0.08% year$^{−1}$) of deforestation of a protected area, on average.</p>
+<ul>
+<li>As it says on the title this is &ldquo;potential gain&rdquo; (i.e) don&rsquo;t put too much weight on this evidence!</li>
+</ul>
+</section><section>
+<h2 id="conclusion-1">Conclusion</h2>
+<img class="r-frame" src="./assets/tottenham.jpg" width="570">
+<p>Overall, good enough paper for a Tottenham Hotspur but not worthy of Jurgen&rsquo;s Liverpool!</p>
+</section><section>
+<h2 id="potential-conservation-gains-from-improved-protected-area-management-in-the-brazilian-amazon-1">Potential conservation gains from improved protected area management in the Brazilian Amazon</h2>
+<p>Thales A.P. West, Jill L. Caviglia-Harris, Flora S.R.V. Martins, Daniel E. Silva, Jan Börner</p>
+
+
+<span class='fragment ' ><em>As presented by,</em> Venkatesh &ldquo;Venki&rdquo; Subramanian</span>
+
+
+
+
+<span class='fragment ' >THANK YOU!</span>
+
+
 </section>
 
   
@@ -151,40 +346,30 @@ graph LR
   
 
   
+  
     
   
-  
 
   
   
 
 
 
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
   
-  <script type="text/javascript" src="/venkislides/mermaid.min_6838052300336322795.js"></script>
-  <script type="text/javascript">
-    mermaid.initialize({startOnLoad: false});
-    let render = (event) => {
-      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
-      if (!mermaidElems.length){
-          return
-      }
-      mermaidElems.forEach(mermaidElem => {
-          let processed = mermaidElem.getAttribute('data-processed');
-          if (!processed){
-              
-              mermaid.init(undefined, mermaidElem);
-          }
-      });
-    };
-    
-    render({currentSlide: Reveal.getCurrentSlide()});
 
-    Reveal.on('slidechanged', render);
-    Reveal.on('ready', render);
-  </script>
-
-
+<script type="text/javascript" id="MathJax-script" async src="/venkislides/tex-svg_10887261161190234492.js"></script>
 
     
     
