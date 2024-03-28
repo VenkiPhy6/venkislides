@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>PPPE 6342</title>
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/venkislides/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/venkislides/reveal-js/dist/reveal.css"><link rel="stylesheet" href="/venkislides/reveal-js/dist/theme/simple.css" id="theme">
+<link rel="stylesheet" href="/venkislides/highlight-js/default.min.css">
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h2 id="contrasting-causation-and-prediction-using-dags">Contrasting causation and prediction using DAGs</h2>
+<p>Venkatesh Subramanian, TA</p>
+<p>March 28, 2024</p>
+<p><em>For</em> PPPE 6342: Research Design II</p>
+</section><section>
+<h2 id="lets-talk-prediction">Lets talk prediction&hellip;</h2>
+<p>For now&hellip;</p>
+<ul>
+<li>Causation 🚫</li>
+<li>Prediction ✅</li>
+</ul>
+</section><section>
+<h2 id="what-is-prediction">What is prediction?</h2>
+<p>Train: $ Tr = { x_i, y_i } _1^N $</p>
+<p>Now, training error: $MSE_{Tr} = Ave_{i \in Tr}[y_i - \hat{f}(x)]^2$</p>
+<p>Test: $ Te = {x_i, y_i}_1^M $.</p>
+<p>Then, test error: $MSE_{Te} = Ave_{i \in Te}[y_i - \hat{f}(x)]^2$</p>
+<p>If $\hat{f}(x)$ can minimize both $MSE_{Tr}$ and $MSE_{Te}$, then it is said to be a predictive model. Then ${x_i}_1^N$ are said to predict ${y_i}_1^N$</p>
+
+
+<span class='fragment ' >Now, what would $\hat{f}(x)$ look like?</span>
+
+
+</section><section>
+<h2 id="what-sort-of-model-would-be-good-at-prediction">What sort of model would be good at prediction?</h2>
+<img class="r-frame" src="./assets/rv_predict.png">
+<blockquote>
+<p>``Everything Should Be Made as Simple as Possible, But Not Simpler&quot;</p>
+</blockquote>
+<p>So, pick the right number of RVs</p>
+</section><section>
+<h2 id="how-to-pick-the-right-number-of-rvs">How to pick the right number of RVs?</h2>
+<p>Which of these RVs adds meaningful information to predict height of a person?</p>
+<img src="./assets/eye_color.jpg" width=150>
+<img src="./assets/pants.jpg"  width=150>
+</section><section>
+<h2 id="taking-stock">Taking stock&hellip;</h2>
+<ol>
+<li>Prediction requires building the simplest possible model on the train data with just the right RVs.</li>
+<li>To pick RVs we ask ourselves which RV provides useful information about the independent variable.</li>
+</ol>
+<p>In short, we need to understand how RVs are related to each other to do prediction well.</p>
+</section><section>
+<h2 id="dags">DAGs!</h2>
+<p>DAGs summarize information about which RV has information on which RV and how they are related!</p>
+<p>Lets go to <a href="https://dagitty.net">dagitty.net</a>.</p>
+<p>Can you guess which nodes in this graph provide the most information about the outcome here?</p>
+</section><section>
+<h2 id="the-markov-blanket">The Markov Blanket</h2>
+<p>Parents, Children and Parents of Children</p>
+<img class="r-frame" src="./assets/blanket.jpg" width="300">
+<p>No other node adds any additional information about the node other than the ones in the Markov Blanket.</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="predicting-with-the-markov-blanket">Predicting with the Markov Blanket</h2>
+<p>Piccininni, M., Konigorski, S., Rohmann, J.L. et al. Directed acyclic graphs and causal thinking in clinical risk prediction modeling. <em>BMC Med Res Methodol</em> <strong>20</strong>, 179 (2020). <a href="https://doi.org/10.1186/s12874-020-01058-z">https://doi.org/10.1186/s12874-020-01058-z</a></p>
+</section><section>
+<img class="r-frame" src="./assets/results.png">
+
+</section>
+</section><section>
+<h2 id="why-are-we-talking-about-all-this">Why are we talking about all this?</h2>
+<p>We said in class that DAGs were all about identifying the causal structure. But now we used it to do prediction?</p>
+<p>
+
+<span class='fragment ' ><em>So is causation and prediction the same?</em></span>
+
+
+
+
+<span class='fragment ' ><strong>NO</strong></span>
+
+</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="causation-v-prediction">Causation v Prediction</h2>
+<h3 id="prediction">Prediction</h3>
+<p>We have to isolate a single variable.</p>
+<img class="r-frame" src="./assets/blanket.jpg" width="400">
+</section><section>
+<h2 id="causation-v-prediction-1">Causation v Prediction</h2>
+<h3 id="causation">Causation</h3>
+<p>We have to isolate the treatment-outcome chain (cause-effect).</p>
+<img class="r-frame" src="./assets/parents.jpg" width="400">
+</section><section>
+<p><span class='fragment ' >So we can only condition on the parents!</span></p>
+<p><span class='fragment ' >Backdoor paths between D and Y are those that “point into D”. So conditioning on parents can mean just meeting the Backdoor criterion!</span></p>
+
+</section>
+</section><section>
+<h2 id="bottomline">Bottomline</h2>
+<ol>
+<li>Prediction can be done using DAGs. But prediction and causation are NOT the same.</li>
+<li>If you want to do prediction, condition on the Markov blanket of whatever you want to predict. If you want to do causation, condition on the parents of the treatment which is tantamount to closing the backdoor paths.</li>
+</ol>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/venkislides/reveal-hugo/object-assign.js></script>
+
+
+<script src="/venkislides/reveal-js/dist/reveal.js"></script>
+
+
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/zoom/zoom.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/notes/notes.js"></script>
+  
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = {};
+  var revealHugoPageParams = {"theme":"simple"};
+
+  var revealHugoPlugins = {
+    
+    plugins: [RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]
+  };
+
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams),
+    camelize(revealHugoPlugins));
+
+  Reveal.initialize(options);
+</script>
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+  
+
+<script type="text/javascript" id="MathJax-script" async src="/venkislides/tex-svg_10887261161190234492.js"></script>
+
+    
+    
+  </body>
+</html>
