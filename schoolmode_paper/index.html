@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>PPPE 6342</title>
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/venkislides/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/venkislides/reveal-js/dist/reveal.css"><link rel="stylesheet" href="/venkislides/reveal-js/dist/theme/simple.css" id="theme">
+<link rel="stylesheet" href="/venkislides/highlight-js/default.min.css">
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h2 id="pandemic-schooling-mode-and-student-test-scores-evidence-from-us-school-districts">Pandemic Schooling Mode and Student Test Scores: Evidence from U.S. School Districts</h2>
+<p>Rebecca Jack, Clare Halloran, James Okun, and Emily Oster</p>
+<p>April 4, 2024</p>
+<p>By Venki for Worksheet 5 in PPPE 6342: RD II</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="a-what-is-the-hypothesis">a) What is the hypothesis?</h2>
+<ul>
+<li><em>Construct</em>: In-person schooling mode ensures higher student performance.</li>
+<li><em>Operationalization</em>: Access to in-person schooling in 2020-21 in the US increased students&rsquo; test scores.</li>
+</ul>
+<p><span class='fragment ' ><em>Context of the treatment:</em> Variations in access to in-person schooling in 2020-21 in the US were caused by the COVID 19 pandemic. This variation has been exploited as a treatment here.</span></p>
+<aside class="notes"><ol>
+<li>No reference to the sample data here except for 2020-21. Hypothesis comes from the real world!</li>
+<li>COVID isn&rsquo;t the treatment. Its the shock that created the treatment for us.</li>
+</ol>
+</aside>
+</section><section>
+<h3 id="construct-validity">Construct validity?</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th style="text-align:center">Construct</th>
+<th style="text-align:center">Operationalization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independent</td>
+<td style="text-align:center">&ldquo;In-person schooling mode&rdquo;</td>
+<td style="text-align:center">&ldquo;Access to in-person schooling in 2020-21&rdquo;</td>
+</tr>
+<tr>
+<td>Dependent</td>
+<td style="text-align:center">&ldquo;student performance&rdquo;</td>
+<td style="text-align:center">&ldquo;students&rsquo; test scores&rdquo;</td>
+</tr>
+</tbody>
+</table>
+<p><span class='fragment ' >Yes</span></p>
+<aside class="notes"><p>So is there construct validity? Yes.</p>
+</aside>
+
+</section>
+</section><section>
+<img class="r-frame" src=./assets/framework.jpg width="370">
+<p>But fat Thor is good enough for Endgame!</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="sampling-issues">Sampling issues</h2>
+<p>Population is expected (Thor).</p>
+<p>But Sample is reality (fat Thor).</p>
+<p>Next couple of questions are about this.</p>
+</section><section>
+<h2 id="b-what-is-the-population-of-interest">b) What is the population of interest?</h2>
+<p>All students in the US between grades 3-8.</p>
+<aside class="notes"><p>There is no reference to districts here. There is no reference to states here.
+If I do that then I am staring at the data! I can&rsquo;t do that.</p>
+</aside>
+</section><section>
+<h3 id="we-can-do-this-now">We can do this now&hellip;</h3>
+<table>
+<thead>
+<tr>
+<th>$i = \text{US students}$</th>
+<th>$t$</th>
+<th>$D_{it} = \text{In-person}$</th>
+<th>$Y^0_{it}$</th>
+<th>$Y^1_{it}$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>2020</td>
+<td>0</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2020</td>
+<td>1</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>2020</td>
+<td>0</td>
+<td></td>
+<td>?</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2020</td>
+<td>1</td>
+<td>?</td>
+<td></td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Given $D_{it}$ is as-if random $ Y_{i,t=2020} = \alpha + \tau_{t=2020} D_{i,t=2020} + \epsilon_{i,t=2020} $</p>
+</section><section>
+<h2 id="c-what-is-the-sample-does-the-sample-represent-the-population">c) What is the sample? Does the sample represent the population?</h2>
+<p>No, it doesn&rsquo;t. Why?</p>
+<ul>
+<li>Under-Coverage: Data is only available from 11 states.</li>
+</ul>
+</section><section>
+<h2 id="but-fat-thor-is-good-enough">But fat Thor is good enough!</h2>
+<ul>
+<li>We can accommodate just having 11 states of data.</li>
+<li>We can accomodate working with data at an aggregated district-level as opposed to the individual student level.</li>
+<li>We can accomodate the treatment being a (non-binary) ratio.</li>
+</ul>
+<p>So, even though <em>there is a sampling issue</em> in addition to the data not being the ideal population data we would like to have, the results can still have internal validity <em>provided</em>&hellip;</p>
+
+</section>
+</section><section>
+<h2 id="methodological-issues">Methodological issues</h2>
+<p>&hellip;<em>provided</em></p>
+<p>the method used by the authors does identification and estimation properly (i.e.) method must be fat Thor enough to fight Thanos!</p>
+<p>The next several questions are about the method.</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="d-what-are-the-treatment-and-control-groups-">d) What are the treatment and control groups? &hellip;</h2>
+<p>The expectation (Thor) is:</p>
+<ul>
+<li><em>Treated group</em>: Students who got in-person learning.</li>
+<li><em>Control group</em>: Students who didn&rsquo;t get in-person learning (i.e) got virtual learning.</li>
+</ul>
+<p>Everything else about the students except their schooling mode ought to be the same.</p>
+</section><section>
+<h2 id="d--how-do-the-authors-build-the-counterfactual">d) &hellip; How do the authors build the counterfactual?</h2>
+<p>The reality (fat Thor) is:</p>
+<p>$$\begin{align}
+pass_{ict} = &\alpha + \beta_1 (\% InPerson_{it}) + \beta_2 (\% Hybrid_{it}) \\
+& + \gamma_{ct} + \delta_t + \eta_i + \Pi X_{ict} + \epsilon_{ict}
+\end{align}$$</p>
+<p>They build a faithful counterfactual by controlling for:</p>
+<ul>
+<li><em>observable</em> characteristics of district-location ($\Pi X_{ict}$) and</li>
+<li><em>unobservable</em> district, location and time fixed effects</li>
+</ul>
+
+</section>
+
+
+
+<aside class="notes"><p>What is $\alpha$ doing here?</p>
+</aside>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="e-what-is-the-estimand-the-authors-use">e) What is the estimand the authors use?</h2>
+<h3 id="prof-wanted-me-to-tell-you">Prof wanted me to tell you&hellip;</h3>
+<p>Whenever you are asked this question remember that you must <em>ONLY</em> pick from this list:</p>
+<ul>
+<li>ATE
+<ul>
+<li>Local ATE (forthcoming in this course)</li>
+<li>Weighted ATE (when treatment is in dosages)</li>
+</ul>
+</li>
+<li>ATT</li>
+<li>ATC</li>
+</ul>
+</section><section>
+<h3 id="how-to-reason-about-the-estimand">How to reason about the estimand</h3>
+<ul>
+<li><em>Step 1</em>: Draw <em>that</em> table as it applies for the operationalization in the paper you are reading.</li>
+<li><em>Step 2</em>: Think about in which rows we are filling in the unobserved potential outcomes (i.e) Who&rsquo;s counterfactual are we actually proxying?</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li>Generally, Matching only fills $Y^0_i$ of treated units&rsquo; rows. That is why it is ATT.</li>
+<li>Generally, DiD only fills $Y^0_i$ of treated units&rsquo; rows. That is why it is ATT.</li>
+</ul>
+</section><section>
+<h3 id="back-to-the-question---e-what-is-the-estimand-the-authors-use">Back to the question - e) What is the estimand the authors use?</h3>
+<p>Note that the treatment is in dosages (i.e) a ratio between 0 and 1.</p>
+<ul>
+<li>That amounts to admitting everyone has some treatment. So all are somewhat treated which means ATT (what DiD gives) $\equiv$ ATE</li>
+<li>But then effects are weighted by the dosage. So it is weighted ATE.</li>
+</ul>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="f-what-assumptions-are-made-by-the-identification-strategy-">f) What assumptions are made by the identification strategy? &hellip;</h2>
+<ol>
+<li><em>Conditional Parallel Trends Assumption (PTA)</em>: Conditionally on included controls, the pass rate in different districts would develop the same way if they had the same regime.</li>
+<li><em>Backdoor is closed</em>: The schooling mode imposed on each district is not dependent on the pass rate of the students in the district.</li>
+</ol>
+<aside class="notes"><p>The treatment is conditional one only one parent - COVID which is an exogenous shock.</p>
+</aside>
+</section><section>
+<h2 id="f--can-you-explicitly-test-for-their-validity">f) &hellip; Can you explicitly test for their validity?</h2>
+<p>Nope! But this provides some plausibility.</p>
+<img class="r-frame" src=./assets/fig1.png width="200">
+<p><span class='fragment ' >Again, fat Thor is claimed to be good enough!</span></p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="g-why-do-the-authors-use-different-combinations-of-fixed-effects-">g) Why do the authors use different combinations of fixed effects? &hellip;</h2>
+<p>In Table 3 District Fixed Effect ($\eta_i$) is always done. It is combined with either State-year or CZ-year or county-year <em>but not all three at the same time!</em></p>
+<ul>
+<li>These FEs help to reduce the effects of variables that guide the pass rate in a specific county, state or CZ.
+<ul>
+<li>State or county political orientations and others&hellip;</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h2 id="g---can-they-combine-these-effects-in-one-regression-why">g)  &hellip; Can they combine these effects in one regression? Why?</h2>
+<p>Including State-year, CZ-year and county-year makes them <em>unidentifiable</em>! It is not a mere multicollinearity.</p>
+<p><span class='fragment ' >Can one county straddle across two CZs? Yes!</span></p>
+<p><span class='fragment ' >Can one CZ straddle across two states? Yes!</span></p>
+
+</section>
+</section><section>
+<h2 id="h-explain-why-the-authors-present-table-2">h) Explain why the authors present Table 2.</h2>
+<p>To say that treatment is not as-if random but then including FEs makes things better. A regression like:</p>
+<p>$$(\% InPerson_{i,t=2020}) = \beta_1 \mathbf{Z_{ic,t=2020}} + \gamma_{c,t=2020} + \epsilon_{ic,t=2020}$$</p>
+<img class="r-frame" src=./assets/tab2.png width="200">
+</section><section>
+<h2 id="i-why-do-the-authors-need-the-alternative-pass-rate-cut-off-results-presented-in-table-4">i) Why do the authors need the alternative pass rate cut-off results presented in Table 4?</h2>
+<ul>
+<li>To ensure that their results hold even if they change the operationalization of the construct of &ldquo;student performance&rdquo;</li>
+</ul>
+</section><section>
+
+
+<section data-shortcode-section>
+<p><span class='fragment ' >Those were all the question about the methods. They portray the reasons for why the method is fat Thor enough to fight Thanos. Now, let us actually fight Thanos and see if fat Thor can win!</span></p>
+<p><span class='fragment ' >That is, let us interpret the results.</span></p>
+<p><span class='fragment ' >The remaining questions are about this</span></p>
+</section><section>
+<h2 id="j-interpret-line-1-models-2-and-5-from-table-3">j) Interpret line 1, Models 2 and 5 from Table 3.</h2>
+<p>Look at the table. Check the slides. Do the addition!</p>
+</section><section>
+<h3 id="k-looking-at-table-3-what-is-the-expected-pass-rate-for-black-students-studying-in-person-in-2021-if-you-assume-that-the-average-pass-rate-for-non-black-students-in-online-setting-is-50">k) Looking at Table 3, what is the expected pass rate for black students studying in-person in 2021, if you assume that the average pass rate for non-black students in online setting is 50%.</h3>
+<p>Look at the table. Check the slides. Do the addition!</p>
+</section><section>
+<h3 id="l-imagine-you-tried-to-replicate-this-study-you-find-that-moving-a-school-from-fully-online-to-fully-in-person-increases-the-pass-rate-by-16-in-math-when-using-specification-with-commute-zone---year-fe-is-your-result-consistent-with-table-3-why">l) Imagine you tried to replicate this study. You find that moving a school from fully-online to fully in-person increases the pass rate by 16% in math when using specification with Commute Zone - Year FE. Is your result consistent with Table 3? Why?</h3>
+<p>Calculate Confidence Interval (CI)</p>
+</section><section>
+<h3 id="m-looking-at-panle-b-of-table-3-do-you-think-hispanic-children-benefit-from-moving-from-online-to-in-person-format-in-terms-of-pass-rate">m) Looking at Panle B of Table 3: do you think hispanic children benefit from moving from online to in-person format in terms of pass rate?</h3>
+<p>Look at the table. Check the slides. Do the addition!</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<p>Did fat Thor win? Yes.</p>
+<img class="r-frame" src=./assets/fatwin.png width="500">
+</section><section>
+<p>Can fat Thor always win? No. It can only workout in this one timeline.</p>
+<img class="r-frame" src=./assets/one.png width="500">
+<p><span class='fragment ' >That is, External validity is still an issue. It almost always is.</span></p>
+
+</section>
+</section><section>
+<h2 id="some-metacognition">Some metacognition</h2>
+<p>See that all questions fit into 4 main categories:</p>
+<ol>
+<li><em>Hypothesis questions</em>: How can I narrate this problem and its direction without looking at any data?</li>
+<li><em>Sampling issues</em>: Now that I understand the problem what type of data to ideally get? What do we actually get?</li>
+<li><em>Methodological issues</em>: With the collected data, what assumptions to satisfy to isolate hypothesized causal effect? What method to use that satisfies these assumptions?</li>
+<li><em>Interpreting the result</em></li>
+</ol>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="did-any-of-that-require-chatgpt-no">Did any of that require ChatGPT? No!</h2>
+<p>When you are stuck answering these questions ask the following:</p>
+<ol>
+<li>Is it a hypothesis question?
+<ul>
+<li>Then, just understand the world the authors are narrating. What is their story?</li>
+</ul>
+</li>
+<li>For remaining questions: Is this a question about expectations of what the authors ought to do (Thor) or what the authors do (fat Thor) in the paper?</li>
+</ol>
+</section><section>
+<h3 id="when-its-about-expectations-thor">When its about expectations (Thor):</h3>
+<ul>
+<li>See the slides</li>
+<li>Read the textbook</li>
+<li>Ask me or professor
+<ul>
+<li>Write an email to us describing what you think is the relevant concept for this question and why you are confused about applying that concept to this paper.</li>
+<li>90% of the time you will figure out the answer on your own when you are drafting the email!</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h3 id="when-its-about-realities-fat-thor-of-the-paper">When its about realities (fat Thor) of the paper:</h3>
+<ul>
+<li>Understand the overall structure of the paper and go to the right spot in it.
+<ul>
+<li>Read (just enough) and ye shall be answered!</li>
+</ul>
+</li>
+<li>If you are still stuck, of course, write us a clear email.
+<ul>
+<li>Again, if you write a good email you will self-discover the answer 90% of the time!</li>
+</ul>
+</li>
+</ul>
+
+</section>
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/venkislides/reveal-hugo/object-assign.js></script>
+
+
+<script src="/venkislides/reveal-js/dist/reveal.js"></script>
+
+
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/zoom/zoom.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/notes/notes.js"></script>
+  
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = {};
+  var revealHugoPageParams = {"theme":"simple"};
+
+  var revealHugoPlugins = {
+    
+    plugins: [RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]
+  };
+
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams),
+    camelize(revealHugoPlugins));
+
+  Reveal.initialize(options);
+</script>
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+  
+
+<script type="text/javascript" id="MathJax-script" async src="/venkislides/tex-svg_10887261161190234492.js"></script>
+
+    
+    
+  </body>
+</html>
