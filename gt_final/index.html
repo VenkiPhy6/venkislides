@@ -23,15 +23,104 @@
 <p><em>For</em> PSCI 7372: Game Theory for Political Scientists</p>
 </section><section>
 <h2 id="whats-being-modeled-here">What&rsquo;s being modeled here?</h2>
-<p>0</p>
+<ul>
+<li>We want to understand the heterogeneity across firm types in the competitive impacts (outcome) of Walmart&rsquo;s (player) entry (action) into a market.</li>
+<li>The discrete state space, $\chi$, models the market share of each firm.
+<ul>
+<li>Each $x_k \in \chi$ is a vector that details the number of stores each firm has on the market.</li>
+</ul>
+</li>
+</ul>
+
+
+<span class='fragment ' ><em>How would rational players drive continuous time dynamics in such a space? This is the model here.</em></span>
+
+
 </section><section>
 <h2 id="players">Players</h2>
+<ul>
+<li>Each player indexed as $i$ is a firm in the grocery/supermarket industry. Nature indexed as $i=0$ also makes moves in the game.</li>
+<li>Players ($i &gt; 0$) come in 3 types:
+<ul>
+<li>Chain firms, $c$</li>
+<li>Walmart, $w$</li>
+<li>Fringe firms, $f$</li>
+</ul>
+</li>
+<li>So, the state vector is:</li>
+</ul>
+<p>$$x_k = \left( s^f_{1k}, s^f_{2k}, ..., s^c_{1k}, s^c_{2k}, ..., s^w_{k}, d_k \right)$$</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="timing">Timing</h2>
+<p>Two stochastic processes in continuous time drive the competition in the market.</p>
+<ol>
+<li>Nature pushes the competitive state of the market according to a Markov Jump Process.</li>
+<li>Players move and push the competitive state of the market according to another competing Markov Jump Process.</li>
+</ol>
+<p>Overall, a compound Markov Jump creates the dynamics in the game.</p>
+</section><section>
+<h3 id="an-imperfect-but-useful-analogy---frogger">An imperfect but useful analogy - Frogger!</h3>
+<img src = "./assets/large.png">
+</section><section>
+<h3 id="a-sufficient-definition-for-frogger">A sufficient definition for Frogger</h3>
+<p>How do you define the path of jumps a frog is taking in this game? One way to do it is to assume players are rational and to define two things:</p>
+<ol>
+<li>For each state of the world, <strong>when</strong> does new traffic spawn and, <strong>when</strong> does the frog jump?</li>
+<li>For each state of the world, <strong>where</strong> does the new traffic spawn and <strong>where</strong> does the frog jump to?</li>
+</ol>
+</section><section>
+<h3 id="jump-hold-construction-of-a-markov-jump-process">Jump-Hold construction of a Markov Jump Process</h3>
+<ol>
+<li><strong>The hold</strong>: While in state $x_k$, <em>when</em> to consider jumping.</li>
+<li><strong>The jump</strong>: While in state $x_k$, when considering a jump, <em>which state</em> (where) to jump to (including remaining in the same state)?</li>
+</ol>
+</section><section>
+<h3 id="intensity-matrix-representation-of-a-markov-jump-process">Intensity Matrix representation of a Markov Jump Process</h3>
+<p>$$Q = \begin{bmatrix}
+q_{11} & q_{12} & \cdots & q_{1K} \\
+q_{21} & q_{22} & \cdots & q_{2K} \\
+\vdots & \vdots & \ddots & \vdots \\
+q_{K1} & q_{K2} & \cdots & q_{KK}
+\end{bmatrix}$$</p>
+<ul>
+<li>$q_{kl}=\lim_{h \rightarrow 0} \frac{Pr(X_{t+h}=l | X_t=k)}{h}$, the <em>hazard rate</em>.</li>
+<li>Obeys <strong>Markovian</strong> property $Pr(X_{t+h}=l | X_t=k) = Pr(X_{t+h}=l | X_t =k, X_{t-1}, X_{t-2}, &hellip;)$</li>
+</ul>
+</section><section>
+<ul>
+<li>Transition probability of <strong>the jump</strong>: $p_{kl}= \frac{q_{kl}}{\sum_{l\ne k}q_{kl}}$</li>
+<li>$q_{kk}=-\sum_{l\ne k}q_{kl}$ is the rate of remaining in the same state. Then <strong>the hold</strong> is given as $exp(-q_{kk})$.</li>
+</ul>
+</section><section>
+<h3 id="compound-markov-jump-process">Compound Markov Jump Process</h3>
+<ul>
+<li>Nature&rsquo;s markov process matrix: Q_0</li>
+<li>Move arrival process of the players (how does the frog jump?): Q_1
+<ul>
+<li>In Q_1, note that $q_{kk} = \lambda$, a constant for all states.</li>
+<li>Transition probability is given as $\sigma_{jk}$, the probability of taking action $j$ in state $k$</li>
+<li>For convenience we also define, $l(j,k)$, the function which tells us the next state when action $j$ is taken in state $k$</li>
+</ul>
+</li>
+</ul>
+<p>Turns out, both these matrices can just be added up! $$Q = Q_0 + Q_1$$</p>
+
+</section>
 </section><section>
 <h2 id="utilities">Utilities</h2>
+<ul>
+<li>Flow utility: $u_{ik}$</li>
+<li></li>
+</ul>
 </section><section>
 <h2 id="strategies">Strategies</h2>
-</section><section>
-<h2 id="timing">Timing</h2>
+<ul>
+<li>Choice set: Two discrete choices can be made in each move arrival: Open a store or close a store. $j \in J = { -1, 1 }$</li>
+<li>Strategy must specify for each</li>
+</ul>
 </section><section>
 <h2 id="information-sets">Information sets</h2>
 </section><section>
