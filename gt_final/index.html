@@ -42,9 +42,9 @@
 <li>Each player indexed as $i$ is a firm in the grocery/supermarket industry. Nature indexed as $i=0$ also makes moves in the game.</li>
 <li>Players ($i &gt; 0$) come in 3 types:
 <ul>
-<li>Chain firms, $c$</li>
+<li>Chain firms, $c$ ⛓️</li>
+<li>Fringe firms, $f$ 🛍️</li>
 <li>Walmart, $w$</li>
-<li>Fringe firms, $f$</li>
 </ul>
 </li>
 <li>So, the state vector is:</li>
@@ -105,35 +105,106 @@ q_{K1} & q_{K2} & \cdots & q_{KK}
 <li>For convenience we also define, $l(j,k)$, the function which tells us the next state when action $j$ is taken in state $k$</li>
 </ul>
 </li>
+<li>Turns out, both these matrices can just be added up to get the compound dynamics of the whole system: $Q = Q_0 + Q_1$</li>
 </ul>
-<p>Turns out, both these matrices can just be added up! $$Q = Q_0 + Q_1$$</p>
 
 </section>
 </section><section>
+
+
+<section data-shortcode-section>
 <h2 id="utilities">Utilities</h2>
+<p>There are 3 types of utility here:</p>
+<ol>
+<li>Flow utility, $u_{ik}$: There are just fixed costs and revenues of owning and operating a certain set of stores (i.e) for every state of the market</li>
+<li>Choice-specific utility $\psi_{ijk}$: The costs and revenues of making a choice at a given state of the world
 <ul>
-<li>Flow utility: $u_{ik}$</li>
-<li></li>
+<li>The choice set has only two discrete choices one of which can be made in each move arrival. Either open a store or close a store. $j \in J = { -1, 1 }$</li>
 </ul>
+</li>
+<li>Choice-specific unobserved shock, $\epsilon_{ijk}$: Each firm may have some private costs/benefits from opening or closing a store we may not know about.</li>
+</ol>
+</section><section>
+<h3 id="flow-utilities-for-chain-firms-">Flow utilities for chain firms ⛓️</h3>
+<p>$$\begin{align}
+u_{ik}^{\text{c}} = s_{ik}^{\text{c}} \left( \beta_{0}^{\text{c}} + \beta_{1}^{\text{c}} \tilde{s}_{ik}^{\text{c}} + \beta_{2}^{\text{c}} s_k^{\text{w}} + \beta_{3}^{\text{c}} s_k^{\text{f}} + \beta_{4}^{\text{c}} s_{ik}^{\text{c}} + \beta_{5}^{\text{c}} d_k + \beta_{6}^{\text{c}} z \\ + \beta_{7}^{\text{c}} z s_{ik}^{\text{c}} \right) + e_{ik}^{\text{c}}
+\end{align}$$</p>
+<p>where $e_{ik}^{\text{c}} = \mu_{1}^{\text{c}} s_{ik}^{\text{c}} + \mu_{2}^{\text{c}} (s_{ik}^{\text{c}})^2 + \mu_{3}^{\text{c}} (s_{ik}^{\text{c}})$</p>
+</section><section>
+<h3 id="choice-specific-utilities-for-chain-firms-">Choice-specific utilities for chain firms ⛓️</h3>
+<p>$$\psi_{ijk} = \begin{cases} \eta_0^{\text{c}} + \eta_1^{\text{c}} z + \kappa_0^{\text{c}} + \kappa_1^{\text{c}} z & \text{if } s_{ik}^{\text{c}} = 0 \text{ and } j = 1, \\ \kappa_0^{\text{c}} + \kappa_1^{\text{c}} z & \text{if } s_{ik}^{\text{c}} > 0 \text{ and } j = 1, \\ \phi_0^{\text{c}} + \phi_1^{\text{c}} z & \text{if } s_{ik}^{\text{c}} > 0 \text{ and } j = -1, \\ 0 & \text{otherwise}. \end{cases}$$</p>
+</section><section>
+<h3 id="flow-utilities-for-fringe-firms-">Flow utilities for fringe firms 🛍️</h3>
+<p>$$u_{ik}^{\text{f}} = \beta^{\text{f}}_0 + \beta^{\text{f}}_1 s_k^{\text{c}} + \beta^{\text{f}}_2 s_k^{\text{w}} + \beta^{\text{f}}_3 s_k^{\text{f}} + \beta^{\text{f}}_4 d_k + \beta^{\text{f}}_5 z + \beta^{\text{f}}_6 z s_k^{\text{f}} + e_{ik}^{\text{f}}.$$</p>
+<p>where $e_{ik}^{\text{f}} = \mu^{\text{f}}_0 + \mu^{\text{f}}_1 s_k^{\text{f}} + \mu^{\text{f}}_2 (s_k^{\text{f}})^2$</p>
+</section><section>
+<h3 id="choice-specific-utilities-for-fringe-firms-">Choice-specific utilities for fringe firms 🛍️</h3>
+<p>$$\psi_{ijk} = \begin{cases} \eta_0^{\text{f}} + \eta_1^{\text{f}} z & \text{if } s_{ik}^{\text{f}} = 0 \text{ and } j = 1, \\ 0 & \text{otherwise}. \end{cases}$$</p>
+
+</section>
 </section><section>
 <h2 id="strategies">Strategies</h2>
 <ul>
-<li>Choice set: Two discrete choices can be made in each move arrival: Open a store or close a store. $j \in J = { -1, 1 }$</li>
-<li>Strategy must specify for each</li>
+<li>Choice set: There discrete choices can be made in each move arrival: Open a store or close a store or do nothing: $j \in J = { -1, 0, 1 }$</li>
+<li>A strategy would be, $\delta: \mathcal{X} \times \mathbb{R}^J \to \mathcal{A}$</li>
 </ul>
 </section><section>
-<h2 id="information-sets">Information sets</h2>
+<h2 id="information">Information</h2>
+<ul>
+<li>All the players know each other and also the rate at which their moves arrive. Obviously they all know what nature is doing.</li>
+<li>Notice here that the choice-specific unobserved shock, $\epsilon_{ijk}$ are not known to other players. The other utilities of each player is known to everyone.</li>
+</ul>
 </section><section>
 <h2 id="assumptions">Assumptions</h2>
+<ul>
+<li>Assumption 1. (Discrete States). The state space is finite</li>
+<li>Assumption 2. (Bounded Rates and Payoffs). The discount rate⁠, move arrival rate, rates of state changes due to nature, and payoffs are all bounded</li>
+<li>Assumption 3. (Additive Separability). For each player and in each state the instantaneous payoff associated with choice is additively separable = Choice-specific utility + Choice-specific shock</li>
+</ul>
 </section><section>
+<ul>
+<li>Assumption 4. (Distinct Actions). The payoff you get from doing nothing is nothing. For the other actions there is a clearly defined payoff and which state you would move the world towards.</li>
+<li>Assumption 5. (Private Information). Choice-specific shock is iid</li>
+</ul>
+</section><section>
+
+
+<section data-shortcode-section>
 <h2 id="equilibrium-concept">Equilibrium concept</h2>
-<p>Is it NE, MSNE, PBE, SPBE, MPE, etc.?</p>
+<p>Remember that the process here is Markovian. So you need equilibrium to be SPNE and so the relevant equilibrium idea here is Markov Perfect Equilibrium.</p>
+<p>$$\label{eq:multi:optimal} \delta_i(k, \varepsilon_i; \varsigma_i) = j \iff \psi_{ijk} + \varepsilon_{ij} + V_{i,l(i,j,k)}(\varsigma_i) \geq \psi_{ij'k} + \varepsilon_{ij'} + V_{i,l(i,j',k)}(\varsigma_i) \quad \forall j' \in \mathcal{A}_{ik}.$$</p>
+</section><section>
+<h3 id="value-function">Value function</h3>
+<img src = "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/restud/83/3/10.1093_restud_rdw012/3/m_rdw012m20.gif?Expires=1716352387&Signature=KH0cmeCvnEMhQChRiZ868V2AFwIXrXbKqrKAJnEAXfDNM1XYHx0CA5My~bTcmtPjoywJRvHB2N~r8PDgepKHVKgzj9UX5heB~7CVYXLqHMJKrCiJJObl-KX9aNJbDgawXYMamrWrYiFpMsz2V5H8lp7cmW3Ze~pFZFPG5EyG6~0xtb2ruQtZnk64T3XJyjhm-nJn7BlOwZalpH-O2YIguNPZJUmITPTPjfXU~gtx1qVD9IVr-YsJKL1AbSwdRO8kOcll--qpwKSsVqaXVNf-NHvR4Zv9Xo1BD4TVCQ4G3ieN4EfkMXSfMaG5Lato~TGGKpspLnfayL1uJYSEeB6eLw__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA">
+
+</section>
 </section><section>
 <h2 id="whats-the-equillibruim-or-equillibria">What&rsquo;s the equillibruim or equillibria?</h2>
+<p>Instead of telling what actions to take, the authors characterize MPE as choice probabilities, ${ \sigma_1, \dots, \sigma_N }$ where each is a best response to given beliefs ⁠$\sigma_{-i}$.</p>
 </section><section>
-<h2 id="analysis-existence-uniqueness-comparative-statics-etc-propositions">Analysis: existence, uniqueness, comparative statics, etc (propositions)</h2>
+<h2 id="analysis">Analysis</h2>
+<p>Brouwer&rsquo;s Theorem says with the assumptions and this setup existence is guaranteed. In fact, the authors estimate the parameters of the utility function at this equilibrium.</p>
 </section><section>
+
+
+<section data-shortcode-section>
 <h2 id="discussion">Discussion</h2>
+<h3 id="why-is-this-paper-clever">Why is this paper clever?</h3>
+<p>Out of all the choices that could be made, the paper makes specific model choices so that not only does the equilibrium exist but it is also identifiable!</p>
+<ul>
+<li>State space was made discrete and finite.</li>
+<li>Time was made continuous and infinite.</li>
+<li>Dynamics were made Markovian.</li>
+</ul>
+</section><section>
+<h3 id="where-did-that-value-function-come-from">Where did that value function come from?</h3>
+<p>Here is a statement of the optimization problem in finite-state, continuous time with deterministic dynamics:</p>
+<img src = "./assets/math2.png">
+</section><section>
+<p>Belman equation is now Hamilton-Jacobi-Bellman equation:</p>
+<img src = "./assets/math3.png">
+
+</section>
 </section>
 
   
