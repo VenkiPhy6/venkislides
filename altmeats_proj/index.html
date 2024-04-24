@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>PPPE 6367</title>
+
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/venkislides/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/venkislides/reveal-js/dist/reveal.css"><link rel="stylesheet" href="/venkislides/reveal-js/dist/theme/simple.css" id="theme">
+<link rel="stylesheet" href="/venkislides/highlight-js/default.min.css">
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section>
+
+<section data-shortcode-section>
+<h2 id="the-bear">The Bear</h2>
+<div class="r-stack">
+<img class="fragment current-visible" src="./assets/the-bear-hulu-364355197.jpg">	
+<img class="fragment current-visible" src="./assets/real_meat.png">
+</div>
+</section><section>
+<h2 id="environmental-impact-of-animal-meat">Environmental impact of animal meat</h2>
+<ul>
+<li>Heller et al. (2018)
+<ul>
+<li>Meats contributed to 56.6% of the total GHGE (measured in CO2 eq. per day) across all 1-day self-selected diets of Americans between 2005-2010</li>
+<li>595,514 metric tonnes of CO2 eq. per day of GHGE, making meats the highest emitter across all food groups in the US between 2005-10.</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h2 id="faking-the-bear">Faking the Bear!</h2>
+<div class="r-stack">
+<img class="fragment current-visible" src="./assets/bear_imit.png" width = 350>	
+<img class="fragment current-visible" src="./assets/imit_meat.jpg">
+</div>
+</section><section>
+<h2 id="is-faking-it-making-it-analyses-of-the-impacts-of-plant-based-meat-access">Is faking it, making it?: Analyses of the impacts of Plant-Based Meat access</h2>
+<p>Venkatesh Subramanian</p>
+<p>April 24, 2024</p>
+<p><em>For</em> PPPE 6367: Environmental Economics</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="hypothesis">Hypothesis</h2>
+<h3 id="--">🪴👍 ➡️➡️ 🥩👎</h3>
+<ul>
+<li><em>Construct</em>: Access to Plant-Based Meat(PBM) reduces consumption of animal meat.</li>
+<li><em>Operationalization</em>: Availability of PBM products in a retail store in a MSA reduces retail purchase of animal meat products in households in that MSA.</li>
+</ul>
+<p><span class='fragment ' >When PBMs came to market earlier this decade it came out only in certain exclusive stores. This gives me variation in treatment.</span></p>
+</section><section>
+<h3 id="construct-validity">Construct validity</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th style="text-align:center">Construct</th>
+<th style="text-align:center">Operationalization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Independent</td>
+<td style="text-align:center">&ldquo;Access to Plant-Based Meat&rdquo;</td>
+<td style="text-align:center">&ldquo;Availability of PBM products in a retail store&rdquo;</td>
+</tr>
+<tr>
+<td>Dependent</td>
+<td style="text-align:center">&ldquo;consumption of animal meat&rdquo;</td>
+<td style="text-align:center">&ldquo;retail purchase of animal meat products&rdquo;</td>
+</tr>
+</tbody>
+</table>
+
+</section>
+</section><section>
+<h2 id="sampling-issues">Sampling issues</h2>
+<ul>
+<li>Scanner data from NielsenIQ
+<ul>
+<li>Consumer Panel data: Household level</li>
+<li>Retail Scanner data: Store level</li>
+</ul>
+</li>
+</ul>
+<p>Available from Booth School of Business linked <a href="https://www.chicagobooth.edu/research/kilts/research-data/nielseniq#simple2">here</a>.</p>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="methodological-issues">Methodological issues</h2>
+<p>$$\begin{align}
+\text{Animal Meat Purchase}_{mt} =& \beta_{t} \text{Plant-Based Meat Access}_{mt} \\&+ \delta_t + \mathbf{X_mt \lambda } + \epsilon_{mt} 
+\end{align}$$</p>
+<ul>
+<li>$m$ denotes a MSA</li>
+<li>$t$ is weeks</li>
+<li>$\delta_t$ is week FE</li>
+<li>$X_{mt}$ is a matrix of control covariates</li>
+<li>$\epsilon_{mt}$ errors are clustered at a MSA-time level.</li>
+</ul>
+<p>But what ought to be in $X_{mt}$ ?</p>
+<p><span class='fragment ' ><em>What covariates do you think I should match on?</em> 🗣️</span></p>
+</section><section>
+<h3 id="matching-covariates">Matching covariates</h3>
+<ul>
+<li>At a MSA-Week level what changes?
+<ul>
+<li>Weather in the MSA in that week</li>
+<li>In-store display status of PBM products</li>
+<li><em>Insert-other-interesting-covariates-here</em></li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h3 id="showing-plausibility-of-conditional-ignorability">Showing plausibility of conditional ignorability</h3>
+<ul>
+<li>As in: West, Thales AP, et al. &ldquo;Potential conservation gains from improved protected area management in the Brazilian Amazon.&rdquo; <em>Biological Conservation</em> 269 (2022): 109526.</li>
+</ul>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr3_lrg.jpg" width="380">
+
+</section>
+</section><section>
+<h2 id="representation-of-results">Representation of results</h2>
+<ul>
+<li>Again, as in: West, Thales AP, et al. &ldquo;Potential conservation gains from improved protected area management in the Brazilian Amazon.&rdquo; <em>Biological Conservation</em> 269 (2022): 109526.</li>
+</ul>
+<img class="r-frame" src="https://ars.els-cdn.com/content/image/1-s2.0-S0006320722000799-gr4_lrg.jpg" width="370">
+</section><section>
+<h2 id="further-research">Further research</h2>
+<ul>
+<li>Lobbying group - The Good Food Institute</li>
+<li>&ldquo;public support for the alternative protein ecosystem has likely surpassed $1 billion&rdquo;</li>
+<li>Cultivated meat technology</li>
+</ul>
+</section><section>
+<h2 id="is-faking-it-making-it-analyses-of-the-impacts-of-plant-based-meat-access">Is faking it, making it?: Analyses of the impacts of Plant-Based Meat access</h2>
+<p>Venkatesh Subramanian</p>
+<p>April 24, 2024</p>
+<p><em>For</em> PPPE 6367: Environmental Economics</p>
+
+
+<span class='fragment ' >Thank you!</span>
+
+
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src=/venkislides/reveal-hugo/object-assign.js></script>
+
+
+<script src="/venkislides/reveal-js/dist/reveal.js"></script>
+
+
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/zoom/zoom.js"></script>
+  
+  <script type="text/javascript" src="/venkislides/reveal-js/plugin/notes/notes.js"></script>
+  
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+  var revealHugoSiteParams = {};
+  var revealHugoPageParams = {"theme":"simple"};
+
+  var revealHugoPlugins = {
+    
+    plugins: [RevealMarkdown,RevealHighlight,RevealZoom,RevealNotes]
+  };
+
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams),
+    camelize(revealHugoPlugins));
+
+  Reveal.initialize(options);
+</script>
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+
+
+
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+  
+
+<script type="text/javascript" id="MathJax-script" async src="/venkislides/tex-svg_10887261161190234492.js"></script>
+
+    
+    
+  </body>
+</html>
