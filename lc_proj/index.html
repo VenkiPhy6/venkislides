@@ -9,7 +9,18 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/venkislides/reveal-js/dist/reset.css">
 <link rel="stylesheet" href="/venkislides/reveal-js/dist/reveal.css"><link rel="stylesheet" href="/venkislides/reveal-js/dist/theme/simple.css" id="theme">
-<link rel="stylesheet" href="/venkislides/highlight-js/default.min.css">
+<link rel="stylesheet" href="/venkislides/highlight-js/default.min.css"><style>
+ 
+.reveal section.side-by-side h1 {
+  position: absolute;
+}
+.reveal section.side-by-side h1:first-of-type {
+  left: 80%;
+}
+.reveal section.side-by-side h1:nth-of-type(2) {
+  right: 20%;
+}
+</style>
   </head>
   <body>
     
@@ -32,35 +43,119 @@
 <p>Venkatesh &ldquo;Venki&rdquo; Subramanian</p>
 <p>April 29, 2024</p>
 <p><em>For</em> PSCI 6342: Comparative Courts and Law</p>
-</section><section>
-<h2 id="title-35-of-the-united-states-code">Title 35 of the United States Code</h2>
-<p>&ldquo;The specification shall contain a written description of the invention, and of the manner and process of making and using it, in such <strong>full, clear, concise, and exact terms</strong> as to enable any person skilled in the art to which it pertains, &hellip;, to make and use the same, &hellip;&rdquo;</p>
-</section><section>
-<img class="r-frame" src="./assets/deposit_decision.png">
-<p><font size =5 >Bussas, Vera, Avinash Sharma, and Yogesh Shouche. 2017. &ldquo;IP and The Budapest Treaty—Depositing Biological Material for Patent Purposes.&rdquo; In Microbial Resources, Elsevier, 275–92. (February 7, 2024).</font></p>
 
 </section>
 </section><section>
 <h2 id="hypothesis">Hypothesis</h2>
 <p><em>Construct:</em> Does ease of international patenting drive firms to relocate to another country?</p>
-<p><em>Operationalization:</em> Does international patenting in the US facilitated by the Budapest treaty cause US firms to relocate to other countries participating in the treaty?</p>
-<p>The Budapest treaty is <em>the instrument</em> for the international patenting <em>treatment</em> here.</p>
+<p><em>Operationalization:</em> Does international patenting in the US facilitated by <strong>the Budapest treaty</strong> cause US firms to relocate to other countries participating in the treaty?</p>
+<p>The <strong>Budapest treaty</strong> is <em>the instrument</em> for the international patenting <em>treatment</em> here.</p>
 </section><section>
 
 
 <section data-shortcode-section>
-<h2 id="why-instrument">Why instrument?</h2>
-<h3 id="endogeneities-between-the-constructs">Endogeneities between the constructs</h3>
-<img class="r-frame" src="./assets/dagitty-model.png">
+<h2 id="title-35-of-the-united-states-code">Title 35 of the United States Code</h2>
+<p>&ldquo;The specification shall contain a written description of the invention, and of the manner and process of making and using it, in such <strong>full, clear, concise, and exact terms</strong> as to enable any person skilled in the art to which it pertains, &hellip;, to make and use the same, &hellip;&rdquo;</p>
 </section><section>
-<h3 id="instrumenting-takes-care-of-endogeneities">Instrumenting takes care of endogeneities</h3>
-<img class="r-frame" src="./assets/dagitty-model (2).png">
+<h2 id="biotech-inventors-be-like">Biotech inventors be like&hellip;</h2>
+<blockquote>
+<p>🎵 I just can&rsquo;t put in words, what I feel for you 🎵</p>
+</blockquote>
+<img class="r-frame" src="./assets/jennifer.png">
 </section><section>
-<h3 id="shift-share-instrument">Shift-share instrument</h3>
-<img class="r-frame" src="./assets/dagitty-model (1).png">
+<img class="r-frame" src="./assets/deposit_decision.png">
+<p><font size =3 > Bussas et al. 2017. <em>Microbial Resources</em>, Elsevier, 275–92. (February 7, 2024).</font></p>
+</section><section>
+<img class="r-frame" src="./assets/singups.png">
+</section><section>
+<img class="r-frame" src="./assets/singups_timings.png">
+</section><section>
+<img class="r-frame" src="./assets/IDAs.png">
 
 </section>
 </section><section>
+
+
+<section data-shortcode-section>
+<h2 id="why-instrument-with-the-treaty">Why instrument with the treaty?</h2>
+<h3 id="endogeneities-between-the-constructs">Endogeneities between the constructs</h3>
+<img class="r-frame" src="./assets/dagitty-model.png">
+</section><section>
+<h3 id="instrumenting-with-the-treaty-accounts-for-endogeneities">Instrumenting with the treaty accounts for endogeneities</h3>
+<img class="r-frame" src="./assets/dagitty-model (2).png">
+</section><section>
+<h3 id="shift-share-instrument-accounts-for-industry-level-differences">Shift-share instrument accounts for industry-level differences</h3>
+<img class="r-frame" src="./assets/dagitty-model (1).png">
+</section><section>
+<h2 id="the-iv-regression">The IV regression</h2>
+<h3 id="second-stage">Second stage</h3>
+<p>$$\text{% relocated}_{(i,j), t} = \tau_{(i,j), t}D_{(i,j), t-1}  + \epsilon_{i,t}$$</p>
+<ul>
+<li>$(i, j)$ are source are destination countries</li>
+<li>$k$ is the patent class</li>
+<li>$D_{(i,j)t-1} = \sum_k S_{(i,j),k,{t-1}} (\text{Int pat}_{(i,j), {t-1}})$ is the <em>treatment</em> of international patenting
+<ul>
+<li>$S_{(i,j),k,{t-1}}$ is the <em>share</em> of international patenting expected to happen in patent class $k$ between countries $i$ and $j$</li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h3 id="first-stage">First stage</h3>
+<p>$$D_{(i,j), t-1} = \beta_{(i,j), t}Z_{(i,j), t-1}  + \eta_{i,t}$$</p>
+<ul>
+<li>$Z_{(i,j), t-1} = \sum_k S_{(i,j),k,{t-1}} (\text{Budapest patents}_{(i,j), {t-1}})$ is the <em>encouragement</em> of patenting via the Budapest treaty
+<ul>
+<li>$S_{(i,j),k,{t-1}}$ is the <em>share</em> of exposure to the treaty in patent class $k$</li>
+</ul>
+</li>
+</ul>
+<p>I estimate the LATE of international patenting on firm relocations, in so far as Budapest treaty citing patents predicts international patenting.</p>
+
+</section>
+</section><section>
+
+
+<section data-shortcode-section>
+<h2 id="data">Data</h2>
+<ul>
+<li>Data on the treaty: From WIPO&rsquo;s website and documents</li>
+<li>Data on the patents:
+<ul>
+<li>US Patents with text containing the phrase &ldquo;international depository authority&rdquo;</li>
+</ul>
+</li>
+<li>Data on firm relocation:
+<ul>
+<li>Patent CPC to NAICS code</li>
+<li>Sources like CapitalIQ, WRDS that contain firm-level data</li>
+<li><em>May cause selection biases!</em></li>
+</ul>
+</li>
+</ul>
+</section><section>
+<h3 id="treaty-data-collation">Treaty data collation</h3>
+<p>I have collated this already</p>
+<img class="r-frame" src="./assets/treaty_data.png" width = 490>
+</section><section>
+<h3 id="patent-class-shares-data-international">Patent class shares data (international)</h3>
+<p>Yet to collect, but preview from Google patents</p>
+<img class="r-frame" src="./assets/pat_data.png" width = 760>
+</section><section>
+<h3 id="firm-level-data-with-a-patent-in-the-us">Firm level data (with a patent in the US)</h3>
+<p>Yet to collect, but preview from Google patents. Using this I will merge to WRDS.</p>
+<img class="r-frame" src="./assets/firm_data.png" width = 680>
+
+</section>
+</section><section>
+<h2 id="patent-and-run-how-international-patenting-drives-international-firm-relocation">Patent and run: How international patenting drives international firm relocation</h2>
+<p>Venkatesh &ldquo;Venki&rdquo; Subramanian</p>
+<p>April 29, 2024</p>
+<p><em>For</em> PSCI 6342: Comparative Courts and Law</p>
+
+
+<span class='fragment ' ><em>Thank you!</em></span>
+
+
 </section>
 
   
