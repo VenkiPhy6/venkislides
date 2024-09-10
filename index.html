@@ -18,13 +18,13 @@
       <div class="slides">
   
 
-    <section><h1 id="hey-stranger-">Hey stranger! 👋</h1>
+    <section><h1 id="howdy-">Howdy! 🤠👋</h1>
 <ul>
-<li>Thanks for visiting here! This probably means you lsitened to one of my presentations and I want you to know that I love you for that! 💖</li>
+<li>Thanks for visiting here! This probably means you listened to one of my presentations and I am glad you did!</li>
 <li>But this is just a landing page for <a href="https://venkiverse.com">my</a> subdomain containing my slides. You would need the exact name of the slides you are looking for to access it specifically.</li>
 <li>Sorry! Just email me and I will tell you the right link.</li>
 </ul>
-<p>Thanks, again, for visting! Bye!</p>
+<p>Thanks, again, for visiting! Bye!</p>
 </section>
 
   
@@ -92,7 +92,14 @@
 
   
   
+    
+  
 
+  
+  
+
+  
+    
   
   
     
@@ -125,8 +132,37 @@
 
   
   
+    
+  
+
+  
+  
 
 
+
+  
+  <script type="text/javascript" src="/venkislides/mermaid.min_6838052300336322795.js"></script>
+  <script type="text/javascript">
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    
+    render({currentSlide: Reveal.getCurrentSlide()});
+
+    Reveal.on('slidechanged', render);
+    Reveal.on('ready', render);
+  </script>
 
 
 
