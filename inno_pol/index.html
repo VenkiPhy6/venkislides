@@ -27,7 +27,7 @@
 <div style="display: flex; justify-content: space-between;">
 	<div style="width: 30%; ">
 		<font size = 6>
-	    <h4> <b>Main Takeaway   </b> </h4>
+	    <h4> 💡<b>Main Takeaway   </b> </h4>
 	    <p>There is an inherent tension between the political economy and economics of innovation policy. The politics of innovation reconciles such tensions.</p>
 		</font>
   </div>
@@ -80,7 +80,7 @@
     <section>
 
 <section data-shortcode-section>
-<h2 id="implication-1">Implication 1</h2>
+<h2 id="claim-1">Claim 1</h2>
 <p>From an economic perspective, we can observe that innovation policy is cost-effective.</p>
 <p><span class='fragment ' ><em>Consider an imaginary case…</em></span></p>
 <div style="display: flex; justify-content: space-between;">
@@ -89,7 +89,7 @@
 	  </div>
 	<div style="width: 55%; " class="fragment">
 	 <p><em>CBO Director</em>: "For every $10M spent on NIH funding, how many useful outputs to society?"	 </p>
-     <p><em>CBO Employee (You):</em>  😕<em></em></p>
+     <p><em>CBO Employee (You):</em>  😕</p>
 	</div>
 </div>
 </section><section>
@@ -114,37 +114,340 @@
 <img class="frame" src="./assets/attribution.png">
 </div>
 </section><section>
-<h3 id="step-3-solve-the-attribution-challenge">Step 3: Solve the attribution challenge</h3>
-<div class="fragment">
-<img class="frame" src="./assets/left_azou_data.png" width = 60%>
-</div>
-</section><section>
+<h3 id="step-3-solve-the-attribution-br-challenge">Step 3: Solve the attribution <br> challenge</h3>
+<img class="frame" src="./assets/left_azou_data.png" width = 55%>
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
 <h3 id="step-4-solve-the-counterfactual-challenge">Step 4: Solve the counterfactual challenge</h3>
 <img class="frame" src="./assets/full_azou_data.png" width = 55%>
 </section><section>
 <h3 id="step-5-give-your-boss-some-intermediate-results">Step 5: Give your boss some intermediate results</h3>
+<p>$$\begin{align*}
+Patents_{\widetilde{dst}} = \alpha_0 + \alpha_1Funding_{dst} + \beta' X_{dst} +& \\
+\delta_{ds} + \gamma_{dt} + \nu_{st} + \epsilon_{dst}&
+\end{align*}$$</p>
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
+<h3 id="step-5-give-your-boss-some-intermediate-results-1">Step 5: Give your boss some intermediate results</h3>
+<div class="mermaid fragment" style="transform: scale(0.8); transform-origin: center;">
+	graph LR
+    	A[NIH grant] --> |Causes| B[Number of Patents]
+	    %% Define a class with specific styling
+    	classDef nodeStyle fill:white,stroke:black,stroke-width:2px,color:black,font-size:20px;
+	    class A,B nodeStyle;
+</div>
+<img class="frame fragment" src="./assets/azoulay_tab6.png" width = 70%>
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
+<h3 id="step-5-give-your-boss-some-intermediate-results-2">Step 5: Give your boss some intermediate results</h3>
+<div class="mermaid" style="transform: scale(0.8); transform-origin: center;">
+	graph LR
+    	A[NIH grant] --> |Causes| B[Number of Patents]
+	    %% Define a class with specific styling
+    	classDef nodeStyle fill:white,stroke:black,stroke-width:2px,color:black,font-size:20px;
+	    class A,B nodeStyle;
+</div>
+<img class="frame" src="./assets/azoulay_tab7.png" width = 70%>
+</section><section>
+<h3 id="step-6-scratch--your-shoe-leather-again-to-go-and-talk-to-nih-admins">Step 6: Scratch  your &ldquo;Shoe leather&rdquo;, again, to go and talk to NIH admins</h3>
+<p>Grant assessment at a study section level
+<img class="frame" src="./assets/azoulay_fig2_1.png" width = 70%></p>
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
+<h3 id="step-6-scratch--your-shoe-leather-again-to-go-and-talk-to-nih-admins-1">Step 6: Scratch  your &ldquo;Shoe leather&rdquo;, again, to go and talk to NIH admins</h3>
+<div style="display: flex; justify-content: space-between;">
+      <div style="width: 45%; padding-left: 5px;" class="fragment">
+      Grant assessment at a disease institute level
+		<img class="frame" src="./assets/azoulay_fig2_2.png">
+	  </div>
+	<div style="width: 55%; " class="fragment">
+              Compute Windfall funding (Instrument)
+		<img class="frame" src="./assets/azoulay_fig2_3.png" width=75%>
+	</div>
+</div>
+</section><section>
+<h3 id="step-7-solving-the-endogeneity-challenge">Step 7: Solving the endogeneity challenge</h3>
+<div class="mermaid fragment" style="transform: scale(0.8); transform-origin: center;">
+	graph LR
+		D[Windfall funding]  --> |☑️| A[NIH grant]
+		subgraph X[" "]
+			direction LR
+            A[NIH grant] --> |✅| B[Number of Patents]
+        end
+    	C[Commercial potential] --> |❌| B[Number of Patents]
+    	C[Commercial potential] --> |❌| A[NIH grant]
+    	%% Define a class with specific styling
+    	classDef nodeStyle fill:white,stroke:black,stroke-width:2px,color:black,font-size:20px;
+	    class A,B,C,D nodeStyle;
+</div>
+<div class='fragment'>
+\begin{align*}
+    Patents_{\widetilde{dst}} = &\alpha_0 + \alpha_1Funding_{dst} + \Upsilon (\#Applications_{dst})& \\ 
+    &+ \Phi(RawScores_{dst}) + \Psi(ScienceRanks_{dst})& \\ 
+    &+ \delta_{ds} + \gamma_{dt} + \nu_{st} + \epsilon_{dst} &
+\end{align*}
+<div>
+<div class='fragment'>
+\begin{align*}
+    WindfallFunding_{dst} = &Funding_{dst}^{\mathbf{W}_dt} + E[Funding_{dst}^{\mathbf{W}_dt}]
+\end{align*}
+<div>
+</section><section>
+<h3 id="step-8-give-your-boss-the-final-results">Step 8: Give your boss the final results</h3>
+<div class="mermaid fragment" style="transform: scale(0.8); transform-origin: center;">
+	graph LR
+		D[Windfall funding]  --> |☑️| A[NIH grant]
+		subgraph X[" "]
+			direction LR
+            A[NIH grant] --> |✅| B[Number of Patents]
+        end
+    	%% Define a class with specific styling
+    	classDef nodeStyle fill:white,stroke:black,stroke-width:2px,color:black,font-size:20px;
+	    class A,B,D nodeStyle;
+</div>
+<img class="frame fragment" src="./assets/azoulay_tab8.png" width = 90%>
+</section><section>
+<h3 id="back-to-the-point---claim-1">Back to the point - Claim 1</h3>
+<div style="display: flex; justify-content: space-between;">
+      <div style="width: 45%; padding-left: 5px;" class="fragment">
+		<img class="frame" src="./assets/cbo_logo.jpg">
+	  </div>
+	<div style="width: 55%; " class="fragment">
+	 <p><em>CBO Director</em>: "For every $10M spent on NIH funding, how many useful outputs to society?"	 </p>
+     <p><em>CBO Employee (You):</em> <p>2.7 patents ✅</p></p>
+	</div>
+</div>
+<p><span class='fragment ' >From an economic perspective, we can observe that innovation policy is cost-effective.</span></p>
 
 </section>
 </section>
-    <section><h2 id="key-takeaways-from-todays-class">Key takeaways from today&rsquo;s class</h2>
+    <section>
+
+<section data-shortcode-section>
+<h2 id="claim-2">Claim 2</h2>
+<p>There are clear political-economic reasons to believe that politicians will NOT be incentivized to allocate resources to innovation.</p>
+<p><span class='fragment ' >In this section:</span></p>
 <ul>
-<li><em>Main Takeaway:</em> There is an inherent tension between the political economy and economics of innovation policy. The politics of innovation must enter into the picture to reconcile such tensions.
-<ul>
-<li><em>Implication 1:</em> From an economic perspective, we <em>can</em> observe that innovation policy is cost-effective.</li>
-<li><em>Implication 2:</em> There are clear political economic reasons to believe that decision makers may not be incentivized to allocate resources to innovation.</li>
-<li><em>Implication 3:</em> Despite this we can observe that politicians <em>do</em> allocate resources to innovation. This is not necessarily due to implication 1 but rather for political reasons.</li>
-</ul>
-</li>
+	<li class='fragment'> "Is this idea clear?" ✅
+	<li class='fragment'> "Is this idea correct?" ❌
 </ul>
 </section><section>
-<h1 id="week-9-innovation-policy-and-innovation-politics">Week 9: Innovation Policy and Innovation Politics</h1>
-<p>Venkatesh &ldquo;Venki&rdquo; Subramanian
-Teaching Assistant</p>
+<h3 id="players-utilities-and-strategies">Players, Utilities, and Strategies</h3>
+<ul>
+	<li class = 'fragment'>Players: Citizens, Incumbent ruler, New ruler
+	<li class = 'fragment'>Discrete time: $t$
+	<li  class = 'fragment'>Everyone's utility depends on a single good: $y_t=A_t$
+	<li  class = 'fragment'>Strategies:
+		<ul>
+			<li  class = 'fragment'>Incumbent ruler: $x_t \in \{0 ,1 \}; T$
+			<li  class = 'fragment'>New ruler: $\widehat{x_t} \in \{0,1\}; \widehat{T} $
+			<li  class = 'fragment'>Citizens: $p_t \in \{0,1\}$
+		</ul>
+</ul>
+</section><section>
+<h3 id="timing">Timing</h3>
+<div class="r-stack">
+	<div class="fragment fade-out" data-fragment-index="0">
+		<img src="assets/acerob_game_seq.png">
+	</div>
+	<div class="fragment">
+		<table>
+		<tr>
+            <td>$x_t$</td>
+            <td>$p_t$</td>
+            <td>$\widehat{x_t}$</td>
+            <td>$y_t=A_t=...$</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>0</td>
+            <td>-</td>
+            <td>$A_{t-1}$</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>0</td>
+            <td>-</td>
+            <td>$A_{t-1}\left[ \alpha \right]$</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>0</td>
+            <td>$A_{t-1}\left[ 1-z \right]$</td>
+        </tr>
+        <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>1</td>
+            <td>$A_{t-1}\left[ \alpha - z \right]$</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>0</td>
+            <td>$A_{t-1}\left[ 1 - z&#39; \right]$</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1</td>
+            <td>1</td>
+            <td>$A_{t-1}\left[ \alpha - z&#39; \right]$</td>
+        </tr>
+		</table>
+	</div>
+</div>
+</section><section>
+<h3 id="cost-of-removing-the-incumbent-z-z-and-political-competition-mu">Cost of removing the incumbent ($z, z&rsquo;$) and political competition ($\mu$)</h3>
+<p>$$    \begin{align*}
+        &z' \sim F^I \equiv \mathcal{U}\left( \mu - \frac{1}{2}, \mu + \frac{1}{2}\right) \\
+        &z \sim F^N \equiv\mathcal{U}\left( \gamma\mu - \frac{1}{2}, \gamma\mu + \frac{1}{2}\right) \\
+        &\text{where } \gamma \geq 1
+    \end{align*}$$</p>
+</section><section>
+<h3 id="incentives-to-block-innovation-and-political-competition-mu">Incentives to block innovation and political competition ($\mu$)</h3>
+<img src="assets/kuznets.png">
+</section><section>
+<h3 id="modifications-to-the-model">Modifications to the model</h3>
+<ul>
+<li>Political rents and human capital</li>
+<li>External threats (i.e.) a war with a more/less developed nation</li>
+</ul>
+</section><section>
+<h3 id="more-pessimism">More pessimism!</h3>
+<ul>
+<li>Delayed payoffs to innovation</li>
+<li>Opportunity cost of innovation policy</li>
+</ul>
+
+</section>
+</section>
+    <section>
+
+<section data-shortcode-section>
+<h2 id="claim-3">Claim 3</h2>
+<p>Yet we observe politicians allocating resources to innovation for political reasons.</p>
+</section><section>
+<h3 id="3-reasons-why-politicians-invest-in-rd">3 reasons why politicians invest in R&amp;D</h3>
+<ol>
+	<li class='fragment'><em>Reason 1:</em> Politicians can signal competence with risky innovation projects.
+	<li class='fragment'><em>Reason 2:</em> Politicians can channel benefits of innovation to connections.
+	<li class='fragment'><em>Reason 3:</em> Politicians can extract rents by creating a "lemons" market of patents.
+</ol>
+</section><section>
+<h3 id="reason-1--politicians-can-signal-competence-with-risky-innovation-projects"><em>Reason 1:</em>  Politicians can signal competence with risky innovation projects.</h3>
+<p>Competence signaling game</p>
+<font size = 6>
+<ul>
+	<li class='fragment'>Players: Incumbent, (Median) Voter
+		<ul>
+			<li class='fragment'>Incumbent types: Competent or Incompetent
+		</ul>
+	<li class='fragment'> Strategies:
+		<ul>
+			<li class='fragment'>Incumbent: Investment in safe project v R&D project
+			<li class='fragment'>Voter: Reelect Incumbent v Not reelect
+		</ul>
+    <li class='fragment'> Utilities:
+		<ul>
+			<li class='fragment'>Incumbent: $\text{ROI} + \text{Value of holding office}$
+			<li class='fragment'>Voter: $\text{ROI} + \text{Value from leader's competence}$
+				<ul>
+					<li> If not reelect, $\text{Prior on Value from leader's competence }$
+				</ul>
+		</ul>
+</ul>
+</font>
+</section><section>
+<h3 id="the-competence-signaling-game---sequence">The competence signaling game - Sequence</h3>
+<img src="assets/game_tree.png" width = 75%>
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
+<h3 id="the-competence-signaling-game---making-sense-of-the-utilities">The competence signaling game - Making sense of the utilities</h3>
+<img src="assets/game_tree.png" width = 75%>
+</section><section>
+<h3 id="the-competence-signaling-game---separating-equilibrium">The competence signaling game - Separating equilibrium</h3>
+<p>$$\delta \tau R \geq W \geq V \implies$$</p>
+<img src="assets/game_tree2.png" width = 65%>
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
+<h3 id="the-competence-signaling-game---pooling-equilibrium">The competence signaling game - Pooling equilibrium</h3>
+<p>$$V > W \,\, \& \,\, \delta \tau R > W \implies$$</p>
+<img src="assets/game_tree3.png" width = 65%>
+</section><section>
+<h3 id="back-to-statistical-shoe-leather">Back to statistical &ldquo;Shoe leather&rdquo;</h3>
+</section><section>
+<h3 id="vignette-survey-experiment">Vignette survey experiment</h3>
+<img src="assets/slide60.png">
+</section>
+<section data-noprocess data-shortcode-slide
+      data-transition="none"
+      data-transition-speed="fast">
+<h3 id="vignette-survey-experiment-1">Vignette survey experiment</h3>
+<img src="assets/slide61.png">
+</section><section>
+<h3 id="results-of-the-survey">Results of the survey</h3>
+<img src="assets/slide65.png">
+</section><section>
+<h3 id="reason-2--politicians-can-channel-benefits-of-innovation-to-connections"><em>Reason 2:</em>  Politicians can channel benefits of innovation to connections.</h3>
+<img src="assets/akcigit.png" width=75%>
+</section><section>
+<h3 id="reason-3--politicians-can-extract-rents-by-creating-a-lemons-market-of-patents"><em>Reason 3:</em>  Politicians can extract rents by creating a &ldquo;lemons&rdquo; market of patents.</h3>
+<ul>
+	<li class='fragment'>What happens to the market when the low competence incumbent invests in R\&D in the pooling equilibrium of the competence signaling game? 
+	<li class='fragment'>We get lemons (i.e) a market filled with bad quality patents!
+		<ul> 
+			<li> Reference to George Akerlof
+		</ul>
+</ul>
+
+</section>
+</section>
+    <section>
+
+<section data-shortcode-section>
+<h2 id="conclusion---same-story-everywhere">Conclusion - Same story everywhere!</h2>
+<iframe width="1280" height="450" src="https://www.youtube-nocookie.com/embed/Mx-KdaJBSEA?vq=hd720" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section><section>
+<h2 id="key-takeaways-from-todays-class">Key takeaways from today&rsquo;s class</h2>
+<div style="display: flex; justify-content: space-between;">
+	<div style="width: 30%; ">
+		<font size = 6>
+	    <h4> 💡<b>Main Takeaway   </b> </h4>
+	    <p>There is an inherent tension between the political economy and economics of innovation policy. The politics of innovation reconciles such tensions.</p>
+		</font>
+  </div>
+  <div style="width: 70%; padding-left: 5px;">
+  	<ul>
+	 <li>  <font size = 6> <em>Claim 1:</em> From an economic perspective, we can observe that innovation policy is cost-effective. 	  </font></li>
+	 <li> <font size = 6><em>Claim 2:</em> There are clear political-economic reasons to believe that politicians will NOT be incentivized to allocate resources to innovation.  </font></li>
+	 <li> <font size = 6><em>Claim 3:</em> Yet we observe politicians allocating resources to innovation for political reasons. </font></li>
+    </ul>
+  </div>
+</div>
+
+</section>
+</section>
+    <section><h2 id="week-9-innovation-policy-and-innovation-politics">Week 9: Innovation Policy and Innovation Politics</h2>
+<p>Venkatesh &ldquo;Venki&rdquo; Subramanian</p>
+<p>Teaching Assistant</p>
 <p>Oct 11, 2024</p>
 <p><em>For</em> IPEC 4305: Topics in Science, Technology and Institutions: From Writing to Cryptocurrency</p>
 
 
-<span class='fragment ' ><em>Thank you!</em></span>
+<span class='fragment ' >Thank you! 🙏🏾</span>
 
 
 </section>
@@ -185,7 +488,7 @@ Teaching Assistant</p>
 
   var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
   var revealHugoSiteParams = {};
-  var revealHugoPageParams = {"theme":"simple"};
+  var revealHugoPageParams = {"slide_number":"c/t","theme":"simple"};
 
   var revealHugoPlugins = {
     
@@ -207,6 +510,21 @@ Teaching Assistant</p>
 
 
   
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
   
 
   
