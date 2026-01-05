@@ -95,13 +95,13 @@
 </div>
 </section><section>
 <h3 id="step-1-understand-the-3-main-challenges-to-reckoning-nih-funding-impact">Step 1: Understand the 3 main challenges to reckoning NIH funding impact</h3>
-<div class="mermaid fragment">
-	graph LR
+<div class="mermaid">	graph LR
     	A[NIH grant] --> |Causes| B[Number of Patents]
 	    %% Define a class with specific styling
     	classDef nodeStyle fill:white,stroke:black,stroke-width:2px,color:black,font-size:30px;
 	    class A,B nodeStyle;
 </div>
+
 <div>
 <ol>
 <li  class="fragment"><b>The attribution challenge:</b> How to tie an NIH grant to a specific patent?
@@ -484,7 +484,7 @@ Patents_{\widetilde{dst}} = \alpha_0 + \alpha_1Funding_{dst} + \beta' X_{dst} +&
   }
 
   var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
-  var revealHugoSiteParams = {};
+  var revealHugoSiteParams = {"mermaid":true};
   var revealHugoPageParams = {"slide_number":"c/t","theme":"simple"};
 
   var revealHugoPlugins = {
@@ -510,6 +510,8 @@ Patents_{\widetilde{dst}} = \alpha_0 + \alpha_1Funding_{dst} + \beta' X_{dst} +&
   
 
   
+    
+  
   
     
   
@@ -585,6 +587,30 @@ Patents_{\widetilde{dst}} = \alpha_0 + \alpha_1Funding_{dst} + \beta' X_{dst} +&
   
 
 
+
+  
+  <script type="text/javascript" src="/venkislides/mermaid.min_6838052300336322795.js"></script>
+  <script type="text/javascript">
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    
+    render({currentSlide: Reveal.getCurrentSlide()});
+
+    Reveal.on('slidechanged', render);
+    Reveal.on('ready', render);
+  </script>
 
 
 

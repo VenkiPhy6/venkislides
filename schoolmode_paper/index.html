@@ -392,7 +392,7 @@ pass_{ict} = &\alpha + \beta_1 (\% InPerson_{it}) + \beta_2 (\% Hybrid_{it}) \\
   }
 
   var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
-  var revealHugoSiteParams = {};
+  var revealHugoSiteParams = {"mermaid":true};
   var revealHugoPageParams = {"theme":"simple"};
 
   var revealHugoPlugins = {
@@ -418,6 +418,8 @@ pass_{ict} = &\alpha + \beta_1 (\% InPerson_{it}) + \beta_2 (\% Hybrid_{it}) \\
   
 
   
+    
+  
   
     
   
@@ -493,6 +495,30 @@ pass_{ict} = &\alpha + \beta_1 (\% InPerson_{it}) + \beta_2 (\% Hybrid_{it}) \\
   
 
 
+
+  
+  <script type="text/javascript" src="/venkislides/mermaid.min_6838052300336322795.js"></script>
+  <script type="text/javascript">
+    mermaid.initialize({startOnLoad: false});
+    let render = (event) => {
+      let mermaidElems = event.currentSlide.querySelectorAll('.mermaid');
+      if (!mermaidElems.length){
+          return
+      }
+      mermaidElems.forEach(mermaidElem => {
+          let processed = mermaidElem.getAttribute('data-processed');
+          if (!processed){
+              
+              mermaid.init(undefined, mermaidElem);
+          }
+      });
+    };
+    
+    render({currentSlide: Reveal.getCurrentSlide()});
+
+    Reveal.on('slidechanged', render);
+    Reveal.on('ready', render);
+  </script>
 
 
 
